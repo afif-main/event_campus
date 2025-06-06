@@ -2,8 +2,9 @@
 
 A web platform for managing campus events at INPT, allowing students and organizers to create, view, and manage events.
  
-github link = https://github.com/afif-main/event_campus
-report of the project is listed in moodle platform
+++ github link = https://github.com/afif-main/event_campus
+
+++ report of the project is listed in moodle platform with the project files
 
 ## Features
 
