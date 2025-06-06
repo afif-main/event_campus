@@ -51,10 +51,10 @@ function displayEvents(events, isProfilePage = false) {
     });
 }
 
-// Check if user has staff privileges
-function isStaffMember() {
+// Check if user has organizer privileges
+function isOrganizer() {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return user.role === 'staff' || user.role === 'admin';
+    return user.role === 'organizer' || user.role === 'admin';
 }
 
 // Get current user ID from localStorage

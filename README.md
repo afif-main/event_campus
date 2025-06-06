@@ -1,6 +1,9 @@
 # Campus Events Platform
 
 A web platform for managing campus events at INPT, allowing students and organizers to create, view, and manage events.
+ 
+github link = https://github.com/afif-main/event_campus
+report of the project is listed in moodle platform
 
 ## Features
 
@@ -40,8 +43,8 @@ You can modify these settings if needed, or use the default values if your Postg
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/campus-events-platform.git
-cd campus-events-platform
+git clone https://github.com/afif-main/event_campus.git
+cd event_campus
 ```
 
 2. Install project dependencies:
@@ -101,12 +104,7 @@ The project uses nodemon for development with hot reload. Start the development 
 npm run dev
 ```
 
-## Testing
 
-Run the test suite:
-```bash
-npm test
-```
 
 ## Contributing
 

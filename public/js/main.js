@@ -213,9 +213,27 @@ async function loadUserRegistrations() {
     }
 }
 
+// Function to update UI based on authentication status
+function updateAuthUI() {
+    const isLoggedIn = isAuthenticated();
+    const heroButtons = document.querySelector('.hero-buttons');
+    
+    if (heroButtons) {
+        heroButtons.style.display = isLoggedIn ? 'none' : 'flex';
+    }
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadUpcomingEvents();
+    updateAuthUI();
+    
+    // Listen for auth state changes (e.g., after login/logout)
+    window.addEventListener('storage', (event) => {
+        if (event.key === 'token' || event.key === 'user') {
+            updateAuthUI();
+        }
+    });
     
     // Add click handler for "View All" button
     const viewAllBtn = document.querySelector('.view-all-btn');

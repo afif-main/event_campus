@@ -617,10 +617,90 @@ function closeModal() {
     }
 }
 
+// Handle create event form submission
+async function handleCreateEvent(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    try {
+        // Convert FormData to JSON
+        const eventData = {};
+        formData.forEach((value, key) => {
+            if (value) eventData[key] = value;
+        });
+        
+        // Handle file upload if present
+        const fileInput = document.getElementById('image');
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            // You would typically upload the file to your server here
+            // For now, we'll just add the file name
+            eventData.image = file.name;
+        }
+        
+        // Call the API to create the event
+        const response = await apiCall(config.endpoints.events.create, 'POST', eventData);
+        
+        // Close the modal and reset the form
+        closeModal('createEventModal');
+        form.reset();
+        
+        // Show success message
+        alert('Event created successfully!');
+        
+        // Refresh the events list
+        loadMyEvents();
+    } catch (error) {
+        console.error('Error creating event:', error);
+        alert(error.message || 'Failed to create event. Please try again.');
+    }
+}
+
 // Initialize theme and profile on page load
 document.addEventListener('DOMContentLoaded', () => {
     // Update navigation first
     updateNavigation();
+    
+    // Add event listeners for create event modal
+    const createEventBtn = document.getElementById('createEventBtn');
+    const createEventModal = document.getElementById('createEventModal');
+    const createEventForm = document.getElementById('createEventForm');
+    const closeButtons = document.querySelectorAll('.close');
+    
+    if (createEventBtn) {
+        createEventBtn.addEventListener('click', () => {
+            if (isAuthenticated() && isStaffMember()) {
+                document.getElementById('createEventModal').style.display = 'block';
+            } else if (isAuthenticated()) {
+                alert('Only staff members and organizers can create events.');
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    }
+    
+    if (createEventForm) {
+        createEventForm.addEventListener('submit', handleCreateEvent);
+    }
+    
+    // Close modal when clicking on X
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+    
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    });
     
     // Load profile data
     loadProfile();
