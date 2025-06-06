@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Events Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Campus Events Hub" class="nav-logo">
+                <span>Campus Events Hub</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active">home</a>
+                <a href="events.html">events</a>
+                <a href="about.html">about</a>
+                <a href="contact.html">contact</a>
+                <div class="auth-buttons">
+                    <a href="login.html" id="loginLink" class="login-btn">login</a>
+                    <a href="register.html" id="registerLink" class="register-btn">register</a>
+                    <a href="profile.html" id="profileLink" class="profile-btn" style="display: none;">My Profile</a>
+                    <a href="#" id="logoutLink" class="logout-btn" style="display: none;">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Amazing Events at INPT</h1>
+                <p>Join our vibrant community and never miss out on workshops, hackathons,<br>and networking events. Connect, learn, and grow with us!</p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="get-started-btn">GET STARTED</a>
+                    <a href="login.html" class="sign-in-btn">SIGN IN</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-events container">
+            <div class="section-header">
+                <h2>Featured Events</h2>
+                <a href="events.html" class="view-all-btn">View All Events</a>
+            </div>
+            <div id="featuredEventsGrid" class="events-grid">
+                <!-- Events will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Inpt Event Hub</h3>
+                <p>INPT Event Hub is dedicated to enriching campus life by creating a centralized platform for event discovery, management, and participation. </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Event Manager. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

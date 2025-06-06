@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Campus Events Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Campus Events Hub" class="nav-logo">
+                <span>Campus Events Hub</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">home</a>
+                <a href="events.html">events</a>
+                <a href="about.html">about</a>
+                <a href="contact.html">contact</a>
+                <div class="auth-buttons">
+                    <a href="login.html" id="loginLink" class="login-btn">login</a>
+                    <a href="register.html" id="registerLink" class="register-btn">register</a>
+                    <a href="profile.html" id="profileLink" class="profile-btn" style="display: none;">My Profile</a>
+                    <a href="#" id="logoutLink" class="logout-btn" style="display: none;">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar"></div>
+            <div class="profile-info">
+                <h1 id="profileName"></h1>
+                <span class="profile-role" id="profileRole"></span>
+                <div class="profile-email" id="profileEmail"></div>
+                <div class="profile-actions">
+                    <button class="profile-edit-btn" id="editProfileBtn">
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Sections -->
+        <div class="profile-sections">
+            <!-- My Registrations Section -->
+            <div class="profile-section">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M6.75 2.5A.75.75 0 017.5 1.75h9a.75.75 0 010 1.5h-9A.75.75 0 016.75 2.5zM4 5.75A.75.75 0 014.75 5h14.5a.75.75 0 010 1.5H4.75A.75.75 0 014 5.75zM1 8.75A.75.75 0 011.75 8h20.5a.75.75 0 010 1.5H1.75A.75.75 0 011 8.75zM1.75 12h20.5a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5zM4 15.75A.75.75 0 014.75 15h14.5a.75.75 0 010 1.5H4.75A.75.75 0 014 15.75zM6.75 19.5a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9z" />
+                    </svg>
+                    My Registrations
+                </h2>
+                <div id="registrationsList">
+                    <!-- Registrations will be loaded here -->
+                </div>
+            </div>
+
+            <!-- My Events Section (for organizer) -->
+            <div id="myEventsSection" class="profile-section" style="display: none;">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M12.75 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM7.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM8.25 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM9.75 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM10.5 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM12.75 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM14.25 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 15.75a.75.75 0 100-1.5.75.75 0 000 1.5zM15 12.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM16.5 13.5a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+                        <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
+                    </svg>
+                    My Created Events
+                </h2>
+                <div class="events-header">
+                    <a href="events.html" class="primary-button">Create New Event</a>
+                </div>
+                <div id="myEventsList" class="events-grid">
+                    <!-- Organizer events will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        name="firstName" 
+                        required
+                        autocomplete="given-name"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        name="lastName" 
+                        required
+                        autocomplete="family-name"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="currentPassword">Current Password (to change password)</label>
+                    <input 
+                        type="password" 
+                        id="currentPassword" 
+                        name="currentPassword" 
+                        autocomplete="current-password"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input 
+                        type="password" 
+                        id="newPassword" 
+                        name="newPassword" 
+                        autocomplete="new-password"
+                        minlength="6"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        autocomplete="new-password"
+                        minlength="6"
+                    >
+                </div>
+                <div class="form-group">
+                    <button type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>INPT Event Hub</h3>
+                <p>INPT Event Hub is dedicated to enriching campus life by creating a centralized platform for event discovery, management, and participation. </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="events.html">Events</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com">Facebook</a>
+                    <a href="https://twitter.com">Twitter</a>
+                    <a href="https://instagram.com">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Event Manager. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html> 
